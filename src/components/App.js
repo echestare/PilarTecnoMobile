@@ -3,11 +3,20 @@ import {
     View, 
     Text
 } from 'react-native';
-import Home from '../screens/Home'
+// import Home from '../screens/Home';
+import AppStack from '../routs/app_stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default App = () => {
 
+    // return (
+    //     <NavigationContainer>
+    //         <Home />
+    //     </NavigationContainer>
+    // )
     return(
-        <Home />
+        <NavigationContainer>
+            <AppStack />
+        </NavigationContainer> 
     )
 }

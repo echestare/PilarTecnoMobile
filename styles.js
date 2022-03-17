@@ -34,7 +34,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'pink',
-        backgroundColor: 'transparent',
         backfaceVisibility: 'visible'
       },
       title: {
@@ -44,10 +43,6 @@ export const styles = StyleSheet.create({
         fontSize: 10,
         fontWeight: 'bold',
         borderRadius: 20,
-      },
-      item: {
-        width: '100%',
-        flex: 3,
       },
 
 })
