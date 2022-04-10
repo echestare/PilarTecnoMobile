@@ -7,13 +7,14 @@ import {
     ImageBackground,
     Image,
     ActivityIndicator,
-    Dimensions
+    Dimensions,
+    TouchableOpacity,
 } from 'react-native';
 import { styles } from './styles';
 
 import { HeaderMaps } from '../../components/Header';
 
-import { Icon } from 'react-native-elements';
+import { Icon, Button } from 'react-native-elements';
 
 import MapView, { Marker } from 'react-native-maps';
 
@@ -38,8 +39,10 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 export default Maps = (props) => {
 
-    const BASE_URI = 'https://www.caracteristicas.co/wp-content/uploads/2017/05/universo-1-e1568576142428.jpg';
+    // const BASE_URI = 'https://www.caracteristicas.co/wp-content/uploads/2017/05/universo-1-e1568576142428.jpg';
 
+    const [mapType, setMapType] = useState('standard');
+    
     const [region, setRegion] = useState({
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -59,6 +62,14 @@ export default Maps = (props) => {
     const fitCoordinates = async () => {
         console.log('centrando mapa')
         this._getLocation()
+    }
+
+    const changeMapType = () => {
+        if (mapType === 'standard') {
+            setMapType('satellite')
+        } else {
+            setMapType('standard')
+        }
     }
 
     _getLocation = async () => {
@@ -110,41 +121,16 @@ export default Maps = (props) => {
             > */}
             <ImageBackground
                 resizeMode="cover"
-                source={{ uri: BASE_URI }}
+                source={require('../../assets/images/background.jpg')}
+                // source={{ uri: BASE_URI }}
                 Style={[styles.mainContent, { aspectRatio: 1, }]}
                 PlaceholderContent={<ActivityIndicator />}
             >
                 <HeaderMaps />
-                {/* <View style={styles.mapTypes}>
-                    <Pressable
-                        style={[styles.buttonContent, {borderWidth: 2}]}
-                        onPress={()=>setMapType(1)}
-                    >
-                        <Text style={styles.title}>INICIO</Text>
-                    </Pressable>
-                    <Pressable 
-                        style={styles.buttonContent}
-                        onPress={()=>setMapType(2)}
-                    >
-                        <Text style={styles.title}>LISTA</Text>
-                    </Pressable>
-                    <Pressable 
-                        style={styles.buttonContent}
-                        onPress={()=>setMapType(3)}
-
-                    >
-                        <Text style={styles.title}>MAPA</Text>
-                    </Pressable>
-                    <Pressable 
-                        style={styles.buttonContent}
-                        onPress={()=>setMapType(4)}
-                    >
-                        <Text style={styles.title}>PERFIL</Text>
-                    </Pressable>
-                </View> */}
                 <View style={styles.mapContent}>
                     <MapView
                         ref = {(ref) => mapRef=ref}
+                        mapType={mapType}
                         // initialRegion={region}
                         // loadingEnabled 
                         style={styles.map}
@@ -159,6 +145,21 @@ export default Maps = (props) => {
                             size={width/8}
                             onPress={() => fitCoordinates()}
                         />
+                    </View>
+                    <View style={styles.mapType} >
+                        <TouchableOpacity
+                            onPress={() => changeMapType()}
+                            // containerStyle={styles.mapButtonContent}
+                            // style={styles.mapButtonStandard}
+                        >
+                            <Text style={{color:'#ffffff'}}> Standard / Satelital </Text>
+                            {/* <Text style={styles.title}> Mapa Standard / Satelital </Text> */}
+                            <View style={{ flexDirection: 'row', alignContent:'center', alignItems:'center'}}>
+                                <Icon type='fontisto' name='map' color='white' style={{size: 30, flex:1}}/>
+                                <Text style={{flex:1, color: '#ffffff', fontSize:20}}>      </Text>
+                                <Icon type='font-awesome-5' name='satellite' color='white' style={{size: 30, flex:1}}/>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.markerFixed}>
                         <Image style={styles.marker} resizeMode='contain' source={require('../../assets/images/pin.png')} />

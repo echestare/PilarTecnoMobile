@@ -124,7 +124,22 @@ export const styles = StyleSheet.create({
         width: '100%'
         // width:width/10,
 
-      },      
-      
-                
+      },
+      mapType: { 
+        width: '60%',
+        // flexDirection: 'row', 
+        justifyContent: 'center', 
+        margintop: 10, 
+        position: 'absolute', 
+        zindex: 5,
+        top: '8%',
+        // top: 30, 
+        left: '18%',
+        backgroundColor:'#3465a490', 
+        borderRadius:10, 
+        alignItems:'center', 
+        justifyContent:'center',
+        height: 50,
+
+      },
 })
