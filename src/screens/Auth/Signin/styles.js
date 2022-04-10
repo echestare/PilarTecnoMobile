@@ -27,18 +27,18 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-around',
       },
       buttonContent: {
-        width: width/4,
-        height: '100%',
-        margin: 10,
-        borderRadius: 20,
+        width: width,
+        // height: '100%',
+        // margin: 10,
+        // borderRadius: 20,
         alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'pink',
-        backgroundColor: 'transparent',
-        backfaceVisibility: 'visible'
+        // justifyContent: 'center',
+        // backgroundColor: 'pink',
+        // backgroundColor: 'transparent',
+        // backfaceVisibility: 'visible'
       },
       title: {
-        // width: '100%',
+        width: width,
         // backgroundColor: '#97c0dc90',
         backgroundColor: '#3465a490',
         fontSize: 10,
