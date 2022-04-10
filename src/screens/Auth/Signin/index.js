@@ -14,26 +14,21 @@ import { Input, Icon, Button } from 'react-native-elements';
 import { AsyncStorage } from '@react-native-async-storage/async-storage';
 import { actions } from '../../../store/actions';
 import { useDispatch } from 'react-redux';
-
 import auth from '@react-native-firebase/auth';
 import {
     GoogleSignin,
     GoogleSigninButton,
     statusCodes,
 } from '@react-native-google-signin/google-signin';
-
 import { GoogleSocialButton, FacebookSocialButton } from "react-native-social-buttons";
 
 
 export default Home = (props) => {
-    
-    // const BASE_URI = 'https://www.caracteristicas.co/wp-content/uploads/2017/05/universo-1-e1568576142428.jpg';
 
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
 
     const dispatch = useDispatch();
-
     
     useEffect(()=>{
         GoogleSignin.configure({
@@ -71,7 +66,6 @@ export default Home = (props) => {
         <SafeAreaView style={styles.container}>
             <ImageBackground
             resizeMode= "cover"
-            // source={{ uri: BASE_URI }}
             source={require('../../../assets/images/background.jpg')}
             Style={[styles.mainContent, {aspectRatio: 1,}]}
             PlaceholderContent={<ActivityIndicator />}
@@ -103,10 +97,11 @@ export default Home = (props) => {
                     />
                     <View style= {[styles.buttonContent]}>
                         <Button 
-                        title='Ingresar (botón deshabilitado)'
+                        title='Ingresar'
+                        // title='Ingresar (botón deshabilitado)'
                         titleStyle={{ fontWeight: 'bold'}}
                         containerStyle={{width:'90%'}}
-                        // onPress={()=>_signIn()}
+                        onPress={()=>_signIn()}
                         />
                     </View>
                     <View style= {[styles.buttonContent,{ marginTop: 10 }]}>

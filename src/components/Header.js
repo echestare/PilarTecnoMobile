@@ -53,7 +53,7 @@ export default Header = (props) => {
                     <Icon type='zocial' name='github' color='white' />
                 </TouchableOpacity>
             </View>}
-        centerComponent={{ text:'PilarTecno', style: styles.heading }}
+        centerComponent={{ text:'HOME', style: styles.heading }}
         />
     </View>
     );
