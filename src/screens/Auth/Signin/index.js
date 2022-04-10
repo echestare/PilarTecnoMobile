@@ -78,7 +78,7 @@ export default Home = (props) => {
                     <Text>{email}</Text>
                     <Text>{pw}</Text>
                     <Text style={[{fontSize: 25, color: 'white', fontWeight: 'bold',}]}>Ingreso a Pilar Tecno:</Text>
-
+{/* 
                     <Input
                         style={[{color: 'white'}]}
                         placeholder='Correo Electrónico'
@@ -103,7 +103,7 @@ export default Home = (props) => {
                         containerStyle={{width:'90%'}}
                         onPress={()=>_signIn()}
                         />
-                    </View>
+                    </View> */}
                     <View style= {[styles.buttonContent,{ marginTop: 10 }]}>
                         {/* <Button 
                             title='Continuar con GOOGLE'

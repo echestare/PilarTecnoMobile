@@ -149,14 +149,16 @@ export default List = (props) => {
         const imgID = getPokemonImgId(path[6])
 
         return (
-            <ListItem key={index} bottomDivider style={{width:'93%', alignSelf:'center', marginVertical:'2%', borderWidth:0.5, borderColor: '#707070'}}>
+            <ListItem key={index} bottomDivider style={styles.ListItem}>
             <TouchableOpacity 
             onPress={()=>props.navigation.navigate('ListItem', item={item})}
-            style={styles.rowContent}
+            // style={styles.listContent}
             >
-                <Avatar source={{uri: `${IMG_URL}${imgID}.png`}} />
+                <Avatar size='large' source={{uri: `${IMG_URL}${imgID}.png`}} />
                 <ListItem.Content>
-                    <ListItem.Title> {imgID} - {item.name.toUpperCase()}</ListItem.Title>
+                    {/* <ListItem.Title> {imgID} - {item.name.toUpperCase()}</ListItem.Title> */}
+                    <ListItem.Title> {imgID}</ListItem.Title>
+                    <ListItem.Title>{item.name.toUpperCase()}</ListItem.Title>
                     {/* <ListItem.Title>{item.pokemon_species.name}</ListItem.Title> */}
                     {/* <ListItem.Subtitle>{item.id}</ListItem.Subtitle> */}
                 </ListItem.Content>
@@ -198,6 +200,11 @@ export default List = (props) => {
                             return (Number(a.url.split('/')[6]) < Number(b.url.split('/')[6])) ? -1 : (Number(a.url.split('/')[6]) > Number(b.url.split('/')[6])) ? 1 : 0;
                            })}
                         // bouces = {false}
+                        numColumns={2}
+                        columnWrapperStyle={{justifyContent:'space-between', alignContent: 'center'}}
+                        ItemSeparatorComponent={
+                            () => <View style={{ width: 10, backgroundColor: 'transparent' }}/>
+                        }
                         renderItem={(item, index) => renderItem(item.item, index)}
                         keyExtractor={(item, index) => index}
                         // style = {styles.list}

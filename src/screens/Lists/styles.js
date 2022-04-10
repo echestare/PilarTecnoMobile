@@ -25,15 +25,26 @@ export const styles = StyleSheet.create({
         width,
         height,
         flexDirection:'column',
-        padding: 10,
+        padding: 25,
         marginTop: 80,
       },
-      rowContent: {
-        flex: 1,
-        width,
-        flexDirection:'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
+      // listContent: {
+        // flex: 1,
+        // width,
+        // height: '30%',
+        // flexDirection:'column',
+        // alignItems: 'flex-start',
+        // justifyContent: 'space-around',
+        // borderRadius: 10,
+      // },
+      ListItem: {
+        width:'50%', 
+        // height: '100%', 
+        alignSelf:'center', 
+        // marginVertical:'2%', 
+        borderWidth: 0.5, 
+        borderColor: '#707070',
+        borderRadius: 10,
       },
       buttonContent: {
         width: width/4,
@@ -84,4 +95,5 @@ export const styles = StyleSheet.create({
         alignContent:'center',
         justifyContent: 'center'
       },
+
 })
